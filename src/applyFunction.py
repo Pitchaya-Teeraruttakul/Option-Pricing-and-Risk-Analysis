@@ -33,4 +33,6 @@ spy["modelPrice"] = spy.apply(
 )
 
 display(nvda)
+nvda.to_csv("data/cleanedNVDA.csv", index=False)
 display(spy)
+spy.to_csv("data/cleanedSPY.csv", index=False)
