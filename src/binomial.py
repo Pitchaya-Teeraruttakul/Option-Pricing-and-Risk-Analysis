@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 fred = Fred(api_key=os.getenv("FRED_API_KEY"))
-riskFreeRate = fred.get_series("GS1M").tail(
-    1
+riskFreeRate = (
+    fred.get_series("GS1M").tail(1).values[0] / 100
 )  # GS1M treasury Constant Maturity 1 Month (get last month March 2025)
 
 
@@ -41,4 +41,5 @@ def binomial(S, K, T, q, ot, sigma, N=100, r=riskFreeRate):
             else:
                 ex = max(K - stree[j, i], 0)
             otree[j, i] = max(h, ex)
+
     return otree[0, 0]
