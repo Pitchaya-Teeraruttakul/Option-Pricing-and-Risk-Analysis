@@ -12,7 +12,7 @@ riskFreeRate = 0.0436
 
 
 # N need to be tune as # of trading day but let's set to constant = 100 (100 steps of binomial)
-def binomial(S, K, T, q, ot, sigma, N=500, r=riskFreeRate):
+def binomial(S, K, T, q, ot, sigma, N=100, r=riskFreeRate):
     # specify input parameters
     dt = T / N
     u = np.exp(sigma * np.sqrt(dt))  # up factor

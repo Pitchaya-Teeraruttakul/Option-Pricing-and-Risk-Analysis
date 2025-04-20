@@ -13,7 +13,7 @@ def greeks(S, K, T, q, ot, sigma, dS=0.01, dVol=0.01, dT=1 / 365):
     - dT: small change in time (default 1 day)
 
     """
-
+    dS = S * 0.01
     basePrice = binomial(S, K, T, q, ot, sigma)
     priceUp = binomial(S + dS, K, T, q, ot, sigma)
     priceDown = binomial(S - dS, K, T, q, ot, sigma)
