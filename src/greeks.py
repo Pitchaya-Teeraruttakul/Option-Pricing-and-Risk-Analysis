@@ -2,7 +2,7 @@ import numpy as np
 from binomial import binomial
 
 
-def greeks(S, K, T, q, ot, sigma, dS=0.01, dVol=0.01, dT=1 / 365):
+def greeks(S, K, T, q, ot, sigma, dS=None, dVol=0.01, dT=1 / 365):
     """
     Parameters:
     - sigma: implied volatility
@@ -13,7 +13,10 @@ def greeks(S, K, T, q, ot, sigma, dS=0.01, dVol=0.01, dT=1 / 365):
     - dT: small change in time (default 1 day)
 
     """
-    dS = S * 0.01
+
+    if dS is None:
+        dS = S * 0.005
+
     basePrice = binomial(S, K, T, q, ot, sigma)
     priceUp = binomial(S + dS, K, T, q, ot, sigma)
     priceDown = binomial(S - dS, K, T, q, ot, sigma)
