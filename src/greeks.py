@@ -32,7 +32,7 @@ def greeks(S, K, T, q, ot, sigma, dS=None, dVol=0.01, dT=1 / 365):
         shorter = binomial(S, K, T - dT, q, ot, sigma)
         theta = (shorter - basePrice) / dT
     else:
-        theta = float("NA")  # Not defined for negative time
+        theta = np.nan  # Not defined for negative time
 
     # Vega: sensitivity to volatility
     priceHVol = binomial(S, K, T, q, ot, sigma + dVol)

@@ -2,8 +2,8 @@ import pandas as pd
 from binomial import binomial
 from IPython.display import display
 
-nvda = pd.read_csv("data/cleanedNVDA.csv")
-spy = pd.read_csv("data/cleanedSPY.csv")
+nvda = pd.read_csv("data/cleaned_options_nvda.csv")
+spy = pd.read_csv("data/cleaned_options_spy.csv")
 
 nvdaResult = []
 spyResult = []
